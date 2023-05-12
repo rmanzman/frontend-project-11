@@ -4,9 +4,6 @@ on:
   - push
   - pull_request
 
-env:
-  CI: true
-
 jobs:
   build:
 
@@ -27,12 +24,9 @@ jobs:
         run: |
           make install
           make build
+
+        env:
+          CI: true
+
       - name: Run linter
         run: make lint
-      - name: Run tests & publish code coverage
-        uses: paambaati/codeclimate-action@v3.2.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
