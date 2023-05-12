@@ -1,2 +1,6 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/rmanzman/frontend-project-11/workflows/hexlet-check/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions)
+![Last commit](https://img.shields.io/github/last-commit/rmanzman/frontend-project-11?color=32c854)
+[![GitHub Workflow Status](https://github.com/rmanzman/frontend-project-11/workflows/hexlet-check/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions)
+[![Tests](https://github.com/rmanzman/gendiff/actions/workflows/frontend-project-11.yml/badge.svg)](https://github.com/rmanzman/gendiff/actions/workflows/tests.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/56f66170042834bb263e/maintainability)](https://codeclimate.com/github/rmanzman/frontend-project-11/maintainability)
+[![Code Climate test coverage](https://api.codeclimate.com/v1/badges/56f66170042834bb263e/test_coverage)](https://codeclimate.com/github/rmanzman/frontend-project-11/test_coverage)
