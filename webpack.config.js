@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   mode: process.env.NODE_ENV || 'development',
+  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -14,29 +15,24 @@ export default {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$i/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        use: 'file-loader',
+        test: /\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'],
       },
     ],
   },
-  entry: './src/index.js',
   devServer: {
     open: true,
     host: 'localhost',
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
+    new MiniCssExtractPlugin(),
   ],
   output: {
     clean: true,
