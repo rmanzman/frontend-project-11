@@ -1,6 +1,3 @@
-import '../index.html';
-import './styles.scss';
-import 'bootstrap';
 import * as yup from 'yup';
 import i18n from 'i18next';
 import axios from 'axios';
@@ -11,18 +8,25 @@ import ru from './locales/ru.js';
 import render from './view.js';
 import parse from './parser.js';
 
+const timeout = 5000;
+
 const validate = (url, links) => {
   const schema = yup.string().trim().required().url()
     .notOneOf(links);
   return schema.validate(url);
 };
 
-const getAxiosResponse = (url) => {
+const proxy = (url) => {
   const proxyLink = 'https://allorigins.hexlet.app/get';
   const proxyLinkWithParams = new URL(proxyLink);
   proxyLinkWithParams.searchParams.set('disableCache', true);
   proxyLinkWithParams.searchParams.set('url', url);
-  return axios.get(proxyLinkWithParams);
+  return proxyLinkWithParams;
+};
+
+const getAxiosResponse = (url) => {
+  const preparedLink = proxy(url);
+  return axios.get(preparedLink);
 };
 
 const addPosts = (feedId, posts, state) => {
@@ -40,11 +44,10 @@ const fetchNewPosts = (state) => {
         if (newPosts.length > 0) {
           addPosts(id, newPosts, state);
         }
-        return Promise.resolve();
       }));
   Promise.allSettled(promises)
     .finally(() => {
-      setTimeout(() => fetchNewPosts(state), 5000);
+      setTimeout(() => fetchNewPosts(state), timeout);
     });
 };
 
@@ -104,16 +107,16 @@ const app = () => {
     elements.form.focus();
     elements.form.addEventListener('submit', (e) => {
       e.preventDefault();
+
       const formData = new FormData(elements.form);
       const url = formData.get('url');
       const addedLinks = watchedState.content.feeds.map(({ link }) => link);
 
+      watchedState.form.error = null;
+      watchedState.form.state = 'sending';
+
       validate(url, addedLinks)
-        .then((link) => {
-          watchedState.form.error = null;
-          watchedState.form.state = 'sending';
-          return getAxiosResponse(link);
-        })
+        .then((link) => getAxiosResponse(link))
         .then((response) => {
           const { feed, posts } = parse(response.data.contents);
           const feedId = uniqueId();
