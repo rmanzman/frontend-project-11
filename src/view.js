@@ -78,7 +78,7 @@ const makeContainer = (title, state, elements, translate) => {
 const renderError = (error, elements, translate) => {
   elements.feedback.classList.remove('text-success');
   elements.feedback.classList.add('text-danger');
-  elements.feedback.textContent = translate(`errors.${error}`);
+  if (error === 'Network Error') elements.feedback.textContent = translate('errors.networkError');
   if (error !== 'Network Error') elements.input.classList.add('is-invalid');
   elements.btn.disabled = false;
   elements.input.disabled = false;
