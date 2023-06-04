@@ -4,10 +4,10 @@
 [![Linter](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/56f66170042834bb263e/maintainability)](https://codeclimate.com/github/rmanzman/frontend-project-11/maintainability)
 
-## RSS Agregator
+## RSS Aggregator
 
 ### Description:
-RSS Agregator - also termed a feed aggregator, feed reader, news reader, RSS reader, or simply an aggregator is a web application that aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing. The updates distributed may include journal tables of contents, podcasts, videos, and news items.
+RSS Aggregator - also termed a feed aggregator, feed reader, news reader, RSS reader, or simply an aggregator is a web application that aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing. The updates distributed may include journal tables of contents, podcasts, videos, and news items.
 
 ### Usage
 - Just follow: https://frontend-project-11-ruddy.vercel.app/
@@ -31,12 +31,11 @@ make install
 ```bash
 npm run start
 ```
-- To build a project in development mode::
+- To build a project in development mode:
 ```bash
 npm run build:dev
 ```
-- To build a project in production mode::
+- To build a project in production mode:
 ```bash
 npm run build:prod
 ```
-
