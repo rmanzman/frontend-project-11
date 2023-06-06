@@ -2,11 +2,12 @@ const parse = (data) => {
   const parser = new DOMParser();
   const parsedData = parser.parseFromString(data, 'application/xml');
 
-  const parseErrorNode = parsedData.querySelector('parsererror');
-  if (parseErrorNode) {
-    const parseError = parseErrorNode.textContent;
-    console.error(parseError);
-    throw new Error('invalidRSS');
+  const parseError = parsedData.querySelector('parsererror');
+  if (parseError) {
+    const error = new Error('invalidRSS');
+    error.isParsingError = true;
+    error.data = parseError.textContent;
+    throw error;
   }
 
   const channel = parsedData.querySelector('channel');
