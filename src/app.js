@@ -21,7 +21,7 @@ const proxy = (url) => {
   const proxyLinkWithParams = new URL(proxyLink);
   proxyLinkWithParams.searchParams.set('disableCache', true);
   proxyLinkWithParams.searchParams.set('url', url);
-  return proxyLinkWithParams;
+  return proxyLinkWithParams.toString();
 };
 
 const getAxiosResponse = (url) => {
@@ -29,9 +29,9 @@ const getAxiosResponse = (url) => {
   return axios.get(preparedLink);
 };
 
-const addPosts = (feedId, posts, state) => {
-  const preparedPosts = posts.map((post) => ({ ...post, feedId, id: uniqueId() }));
-  state.content.posts = [...state.content.posts, ...preparedPosts];
+const addPosts = (feedId, posts) => {
+  const updatedPosts = posts.map((post) => ({ ...post, feedId, id: uniqueId() }));
+  return updatedPosts;
 };
 
 const fetchNewPosts = (state) => {
@@ -42,7 +42,7 @@ const fetchNewPosts = (state) => {
         const alreadyAddedLinks = state.content.posts.map((post) => post.link);
         const newPosts = posts.filter((post) => !alreadyAddedLinks.includes(post.link));
         if (newPosts.length > 0) {
-          addPosts(id, newPosts, state);
+          state.content.posts = [...state.content.posts, ...addPosts(id, newPosts)];
         }
       }));
   Promise.allSettled(promises)
@@ -121,7 +121,7 @@ const app = () => {
           const { feed, posts } = parse(response.data.contents);
           const feedId = uniqueId();
           watchedState.content.feeds.push({ ...feed, feedId, link: url });
-          addPosts(feedId, posts, watchedState);
+          watchedState.content.posts = addPosts(feedId, posts);
           watchedState.form.state = 'success';
         })
         .catch((error) => {
