@@ -1,7 +1,6 @@
 ### Hexlet tests and linter status:
 ![Last commit](https://img.shields.io/github/last-commit/rmanzman/frontend-project-11?color=32c854)
-[![GitHub Workflow Status](https://github.com/rmanzman/frontend-project-11/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions/workflows/hexlet-check.yml)
-[![Linter](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml)
+[![Build & Linter](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml/badge.svg)](https://github.com/rmanzman/frontend-project-11/actions/workflows/rss.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/56f66170042834bb263e/maintainability)](https://codeclimate.com/github/rmanzman/frontend-project-11/maintainability)
 
 ## RSS Aggregator
@@ -10,7 +9,7 @@
 RSS Aggregator - also termed a feed aggregator, feed reader, news reader, RSS reader, or simply an aggregator is a web application that aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing. The updates distributed may include journal tables of contents, podcasts, videos, and news items.
 
 ### Usage
-- Just follow: https://frontend-project-11-ruddy.vercel.app/
+- Just follow [this link](https://rss-aggregator-rmanzman.vercel.app/){:target="_blank"}
 - Insert the valid RSS-feed link to input
 - Press 'Add' button
 
@@ -19,11 +18,11 @@ Make sure you have Node.js (14.0.x.x or higher) and npm installed.
 
 1. Clone the project
 ```bash
-git clone git@github.com:rmanzman/frontend-project-11.git
+git clone git@github.com:rmanzman/rss-aggregator.git
 ```
 2. Install dependencies
 ```bash
-cd frontend-project-11
+cd rss-aggregator
 make install
 ```
 3. Use the following scripts according to your objectives
