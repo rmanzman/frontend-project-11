@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 import i18n from 'i18next';
 import axios from 'axios';
+import onChange from 'on-change';
 import { uniqueId } from 'lodash';
 
-import onChange from 'on-change';
 import ru from './locales/ru.js';
 import render from './view.js';
 import parse from './parser.js';
