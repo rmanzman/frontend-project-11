@@ -9,7 +9,7 @@
 RSS Aggregator - also termed a feed aggregator, feed reader, news reader, RSS reader, or simply an aggregator is a web application that aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing. The updates distributed may include journal tables of contents, podcasts, videos, and news items.
 
 ### Usage
-- Just follow [this link](https://rss-aggregator-rmanzman.vercel.app/){:target="_blank"}
+- Just follow <a href="https://rss-aggregator-rmanzman.vercel.app/" target="_blank">this link</a>
 - Insert the valid RSS-feed link to input
 - Press 'Add' button
 
